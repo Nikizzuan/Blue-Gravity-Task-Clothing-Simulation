@@ -16,3 +16,4 @@ MonoBehaviour:
   icon: {fileID: -449060504, guid: 7f56e1d1e3f3aa74fa13c3e5db2b793c, type: 3}
   price: 0
   clothingType: 2
+  clothingPrefab: {fileID: 5305945661546008953, guid: 4e9dfb81b0b46f3438adf6cdfea85803, type: 3}

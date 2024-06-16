@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: Emerald Earring
   icon: {fileID: -918128742, guid: 51636f136ee906a40abefe3dde8c3e87, type: 3}
   price: 100
-  clothingType: 5
+  clothingType: 4
+  clothingPrefab: {fileID: 5034564703871190772, guid: 68837a516f1dab44ba413d944e773093, type: 3}

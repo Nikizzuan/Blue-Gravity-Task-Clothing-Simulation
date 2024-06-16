@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: Clown Mask
   icon: {fileID: 610216729, guid: 1ccbf6537ba54034cb476a52c141e7bb, type: 3}
   price: 50
-  clothingType: 5
+  clothingType: 4
+  clothingPrefab: {fileID: 5034564703871190772, guid: d7f24b3141be3d2469a3a9cf2e043114, type: 3}

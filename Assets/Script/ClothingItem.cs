@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum ClothingType
@@ -8,13 +6,15 @@ public enum ClothingType
     Costume,
     Pants,
     Shoes,
-    Accessory
+    Accessory,
+    Hair
 }
 
 [CreateAssetMenu(fileName = "New Clothing", menuName = "Inventory/Clothing")]
 public class ClothingItem : Item
 {
     public ClothingType clothingType;
+    public GameObject clothingPrefab; // Reference to the clothing prefab
 
     public override void Use()
     {

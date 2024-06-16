@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: Clown Costume
   icon: {fileID: 337091781, guid: c21d240d865be8841b2deffe3d17fcd0, type: 3}
   price: 70
-  clothingType: 2
+  clothingType: 1
+  clothingPrefab: {fileID: 5034564703871190772, guid: 9eb48547fbf463d489c86baad5d042b2, type: 3}

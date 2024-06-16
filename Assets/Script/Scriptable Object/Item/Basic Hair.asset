@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bea09780b271c64bb821f940bb22272, type: 3}
-  m_Name: Basic Shoes
+  m_Name: Basic Hair
   m_EditorClassIdentifier: 
-  itemName: Basic Shoes
-  icon: {fileID: -498529305, guid: 485ff2e1990e841419cbba984d2e0bce, type: 3}
+  itemName: Basic hair
+  icon: {fileID: -1029270545, guid: 6f5e46668e498f7478aeb50a857df6ee, type: 3}
   price: 0
-  clothingType: 3
-  clothingPrefab: {fileID: 8371779705874784697, guid: 822f3fd579ce6b94db06f06355d03527, type: 3}
+  clothingType: 5
+  clothingPrefab: {fileID: 5034564703871190772, guid: bce0a1bf43bab504682951e8ae560c25, type: 3}
+  animatorController: {fileID: 9100000, guid: 2e8983fcb39d26f4fab5ad067a44bb81, type: 2}

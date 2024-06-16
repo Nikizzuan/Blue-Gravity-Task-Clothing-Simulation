@@ -11,12 +11,18 @@ public class Shopkeeper : MonoBehaviour
     public GameObject itemPrefab;
     public InventoryManager inventoryManager;
     public List<ClothingItem> itemsForSale;
+    private PlayerController playerController;
 
     private bool isPlayerNearby = false;
 
+    void Start()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+    }
+
     void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E)) // Interaction key
+        if (!interactionUI.activeSelf && !shopUI.activeSelf && !sellUI.activeSelf && isPlayerNearby && Input.GetKeyDown(KeyCode.E)) // Interaction key
         {
             interactionUI.SetActive(true);
         }
@@ -54,7 +60,7 @@ public class Shopkeeper : MonoBehaviour
         {
             GameObject itemGO = Instantiate(itemPrefab, shopItemsParent);
             // Setup itemGO with item data
-            itemGO.GetComponent<ItemButton>().Setup(item, this);
+            itemGO.GetComponent<ItemButton>().Setup(item, this, inventoryManager, playerController);
         }
     }
 
@@ -69,7 +75,7 @@ public class Shopkeeper : MonoBehaviour
         {
             GameObject itemGO = Instantiate(itemPrefab, playerItemsParent);
             // Setup itemGO with item data
-            itemGO.GetComponent<ItemButton>().Setup(item, this);
+            itemGO.GetComponent<ItemButton>().Setup(item, this, inventoryManager, playerController);
         }
     }
 

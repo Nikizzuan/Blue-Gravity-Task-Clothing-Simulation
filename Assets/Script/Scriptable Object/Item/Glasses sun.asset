@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: 'Sun Glasses '
   icon: {fileID: 1543609412, guid: 3e8e07add3667fe468c854127bac5b73, type: 3}
   price: 30
-  clothingType: 5
+  clothingType: 4
+  clothingPrefab: {fileID: 5034564703871190772, guid: dd09720262a9fb64282b56f641d3b739, type: 3}

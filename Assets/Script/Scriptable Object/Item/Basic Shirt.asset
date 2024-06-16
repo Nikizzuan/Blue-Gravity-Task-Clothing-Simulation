@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: Basic Shirt
   icon: {fileID: -1029270545, guid: 6f5e46668e498f7478aeb50a857df6ee, type: 3}
   price: 0
-  clothingType: 1
+  clothingType: 0
+  clothingPrefab: {fileID: 8044609081431405930, guid: b04f8f779555bb04faeacb99ea3a91e2, type: 3}

@@ -23,7 +23,8 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private List<Item> items = new List<Item>();
+    public int money;
+    private List<ClothingItem> clothingItems = new List<ClothingItem>();
 
     void Awake()
     {
@@ -38,20 +39,20 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddItem(Item item)
+    public void AddItem(ClothingItem item)
     {
-        items.Add(item);
+        clothingItems.Add(item);
         Debug.Log("Added item: " + item.itemName);
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem(ClothingItem item)
     {
-        items.Remove(item);
+        clothingItems.Remove(item);
         Debug.Log("Removed item: " + item.itemName);
     }
 
-    public List<Item> GetItems()
+    public List<ClothingItem> GetClothingItems()
     {
-        return items;
+        return clothingItems;
     }
 }

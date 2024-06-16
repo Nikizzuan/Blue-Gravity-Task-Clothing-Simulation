@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bea09780b271c64bb821f940bb22272, type: 3}
   m_Name: Witch Hat
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  price: 0
-  clothingType: 0
+  itemName: 'Witch Hat '
+  icon: {fileID: 1599780572, guid: 7e41888967c559645ab39a6a7678f659, type: 3}
+  price: 70
+  clothingType: 4

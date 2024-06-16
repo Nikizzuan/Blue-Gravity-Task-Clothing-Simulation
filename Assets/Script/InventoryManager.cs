@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -23,7 +25,11 @@ public class InventoryManager : MonoBehaviour
     }
 
     public int money;
-    private List<ClothingItem> clothingItems = new List<ClothingItem>();
+
+    public TMP_Text moneyText;
+    public List<ClothingItem> clothingItems = new List<ClothingItem>();
+
+    public PlayerEquipment _playerEquipment;
 
     void Awake()
     {
@@ -35,6 +41,12 @@ public class InventoryManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+
+        moneyText.text = money.ToString();
+        foreach (var item in clothingItems)
+        {
+            _playerEquipment.EquipItem(item);
         }
     }
 
@@ -53,5 +65,11 @@ public class InventoryManager : MonoBehaviour
     public List<ClothingItem> GetClothingItems()
     {
         return clothingItems;
+    }
+
+    public void UpdateMoney(int amount)
+    {
+        money += amount;
+        moneyText.text = money.ToString();
     }
 }

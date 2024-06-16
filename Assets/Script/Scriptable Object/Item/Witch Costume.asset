@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Witch Costume
   icon: {fileID: -365535119, guid: c7cbcced2425f5c44b03874688d6bda8, type: 3}
   price: 90
-  clothingType: 2
+  clothingType: 1
   clothingPrefab: {fileID: 5034564703871190772, guid: 608ff7679710a7145b42480063aac41a, type: 3}

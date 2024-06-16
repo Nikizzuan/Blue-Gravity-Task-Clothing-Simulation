@@ -70,7 +70,6 @@ public class PlayerEquipment : MonoBehaviour
             case ClothingType.Costume:
                 parentTransform = costumeParent;
                 animator = _CostumeAnimator;
-                // If equipping a costume, clear other related items
                 if (equippedItems.ContainsKey(ClothingType.Shirt))
                     Destroy(equippedItems[ClothingType.Shirt].gameObject);
                 if (equippedItems.ContainsKey(ClothingType.Pants))
@@ -111,8 +110,56 @@ public class PlayerEquipment : MonoBehaviour
             _HairAnimator = animator;
     }
 
+
+    public void UnEquipItem(ClothingItem item)
+{
+    if (item == null)
+    {
+        Debug.LogError("Clothing item is null");
+        return;
+    }
+
+    if (!equippedItems.ContainsKey(item.clothingType))
+    {
+        Debug.LogWarning("No item of type " + item.clothingType + " is currently equipped");
+        return;
+    }
+
+    // Destroy the equipped item game object
+    Destroy(equippedItems[item.clothingType].gameObject);
+
+    // Remove the item from the dictionary
+    equippedItems.Remove(item.clothingType);
+
+    // Reset the specific animator reference if necessary
+    switch (item.clothingType)
+    {
+        case ClothingType.Shirt:
+            _ClothesAnimator = null;
+            break;
+        case ClothingType.Pants:
+            _PantsAnimator = null;
+            break;
+        case ClothingType.Shoes:
+            _ShoesAnimator = null;
+            break;
+        case ClothingType.Accessory:
+            _AccessoriesAnimator = null;
+            break;
+        case ClothingType.Costume:
+            _CostumeAnimator = null;
+            break;
+        case ClothingType.Hair:
+            _HairAnimator = null;
+            break;
+    }
+}
+
+
     public bool IsItemEquipped(ClothingItem item)
     {
         return equippedItems.ContainsKey(item.clothingType) && equippedItems[item.clothingType].clothingItem == item;
     }
+
+
 }

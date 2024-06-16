@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private Animator _CostumeAnimator;
     public float speed = 5f;
 
-    private PlayerEquipment _playerEquipment;
+    internal PlayerEquipment _playerEquipment;
     public GameObject inventoryUI; // Reference to the inventory UI
     public Transform playerItemsParent; // Parent transform for the inventory items
     public GameObject itemPrefab; // Prefab for the inventory item buttons
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public Shopkeeper shopkeeper;
 
     private bool isInventoryOpen = false;
+    
 
     void Start()
     {
@@ -71,48 +72,58 @@ public class PlayerController : MonoBehaviour
     // Method to sync parameters across animators
     void SyncAnimators(float moveX, float moveY, bool isWalking)
     {
+        if (isWalking)
+        {
+            if (_BaseAnimator != null)
+            {
+                _BaseAnimator.SetFloat("moveX", moveX);
+                _BaseAnimator.SetFloat("moveY", moveY);
+            }
+            if (_HairAnimator != null)
+            {
+                _HairAnimator.SetFloat("moveX", moveX);
+                _HairAnimator.SetFloat("moveY", moveY);
+            }
+            if (_AccessoriesAnimator != null)
+            {
+                _AccessoriesAnimator.SetFloat("moveX", moveX);
+                _AccessoriesAnimator.SetFloat("moveY", moveY);
+            }
+            if (_PantsAnimator != null)
+            {
+                _PantsAnimator.SetFloat("moveX", moveX);
+                _PantsAnimator.SetFloat("moveY", moveY);
+            }
+            if (_ClothesAnimator != null)
+            {
+                _ClothesAnimator.SetFloat("moveX", moveX);
+                _ClothesAnimator.SetFloat("moveY", moveY);
+            }
+            if (_ShoesAnimator != null)
+            {
+                _ShoesAnimator.SetFloat("moveX", moveX);
+                _ShoesAnimator.SetFloat("moveY", moveY);
+            }
+            if (_CostumeAnimator != null)
+            {
+                _CostumeAnimator.SetFloat("moveX", moveX);
+                _CostumeAnimator.SetFloat("moveY", moveY);
+            }
+        }
         if (_BaseAnimator != null)
-        {
-            _BaseAnimator.SetFloat("moveX", moveX);
-            _BaseAnimator.SetFloat("moveY", moveY);
             _BaseAnimator.SetBool("isWalking", isWalking);
-        }
         if (_HairAnimator != null)
-        {
-            _HairAnimator.SetFloat("moveX", moveX);
-            _HairAnimator.SetFloat("moveY", moveY);
             _HairAnimator.SetBool("isWalking", isWalking);
-        }
         if (_AccessoriesAnimator != null)
-        {
-            _AccessoriesAnimator.SetFloat("moveX", moveX);
-            _AccessoriesAnimator.SetFloat("moveY", moveY);
             _AccessoriesAnimator.SetBool("isWalking", isWalking);
-        }
         if (_PantsAnimator != null)
-        {
-            _PantsAnimator.SetFloat("moveX", moveX);
-            _PantsAnimator.SetFloat("moveY", moveY);
             _PantsAnimator.SetBool("isWalking", isWalking);
-        }
         if (_ClothesAnimator != null)
-        {
-            _ClothesAnimator.SetFloat("moveX", moveX);
-            _ClothesAnimator.SetFloat("moveY", moveY);
             _ClothesAnimator.SetBool("isWalking", isWalking);
-        }
         if (_ShoesAnimator != null)
-        {
-            _ShoesAnimator.SetFloat("moveX", moveX);
-            _ShoesAnimator.SetFloat("moveY", moveY);
             _ShoesAnimator.SetBool("isWalking", isWalking);
-        }
         if (_CostumeAnimator != null)
-        {
-            _CostumeAnimator.SetFloat("moveX", moveX);
-            _CostumeAnimator.SetFloat("moveY", moveY);
             _CostumeAnimator.SetBool("isWalking", isWalking);
-        }
     }
 
     // Equip clothing item

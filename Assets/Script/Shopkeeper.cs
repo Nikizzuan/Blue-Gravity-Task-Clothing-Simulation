@@ -22,7 +22,7 @@ public class Shopkeeper : MonoBehaviour
 
     void Update()
     {
-        if (!interactionUI.activeSelf && !shopUI.activeSelf && !sellUI.activeSelf && isPlayerNearby && Input.GetKeyDown(KeyCode.E)) // Interaction key
+        if (!interactionUI.activeSelf && !shopUI.activeSelf && !sellUI.activeSelf && isPlayerNearby && Input.GetKeyDown(KeyCode.E)) 
         {
             interactionUI.SetActive(true);
         }
@@ -84,7 +84,7 @@ public class Shopkeeper : MonoBehaviour
         if (inventoryManager.money >= item.price)
         {
             inventoryManager.AddItem(item);
-            inventoryManager.money -= item.price;
+            inventoryManager.UpdateMoney(-item.price);
             itemsForSale.Remove(item);
             PopulateShopItems();
         }
@@ -95,13 +95,19 @@ public class Shopkeeper : MonoBehaviour
         }
     }
 
-    public void SellItem(ClothingItem item)
+   public void SellItem(ClothingItem item)
     {
+        if (playerController.IsItemEquipped(item))
+        {
+            playerController._playerEquipment.UnEquipItem(item); 
+        }
+
         inventoryManager.RemoveItem(item);
-        inventoryManager.money += item.price;
+        inventoryManager.UpdateMoney(item.price);
         itemsForSale.Add(item);
         PopulatePlayerItems();
     }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {

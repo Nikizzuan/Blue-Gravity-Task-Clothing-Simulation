@@ -25,15 +25,5 @@ I appreciate the opportunity to participate in this programming interview task. 
   - Design a suitable UI for the prototype.
   - Utilize pre-made art assets or create my own.
 
-- **Development Guidelines:**
-  - Use GitHub for version control, making incremental commits during development.
-  - Provide a public GitHub link for easy access and playtesting.
-  - Send a zipped copy of the executable (.exe) file to the specified email with the name format '**YOUR NAME_BGS TASK**'.
-  - Create a 300-word document explaining the system, my thought process, and a personal assessment of my performance, and attach this as a PDF on GitHub.
-
-- **Quality Expectations:**
-  - Ensure high quality in design, aesthetics, and playability.
-  - Thoroughly playtest the game before submission.
-
 
 Thank you for this opportunity. I am excited to demonstrate my skills and dedication through this task.

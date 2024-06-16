@@ -29,7 +29,7 @@ public class InventoryManager : MonoBehaviour
     public TMP_Text moneyText;
     public List<ClothingItem> clothingItems = new List<ClothingItem>();
 
-    public PlayerEquipment _playerEquipment;
+   
 
     void Awake()
     {
@@ -43,10 +43,15 @@ public class InventoryManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    void Start(){
+
+        
         moneyText.text = money.ToString();
         foreach (var item in clothingItems)
         {
-            _playerEquipment.EquipItem(item);
+            GameManager.Instance._playerEquipment.EquipItem(item);
         }
     }
 

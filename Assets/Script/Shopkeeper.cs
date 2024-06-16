@@ -11,42 +11,42 @@ public class Shopkeeper : MonoBehaviour
     public GameObject itemPrefab;
     public InventoryManager inventoryManager;
     public List<ClothingItem> itemsForSale;
-    private PlayerController playerController;
+
 
     private bool isPlayerNearby = false;
 
-    void Start()
-    {
-        playerController = FindObjectOfType<PlayerController>();
-    }
+ 
 
     void Update()
-    {
-        if (!interactionUI.activeSelf && !shopUI.activeSelf && !sellUI.activeSelf && isPlayerNearby && Input.GetKeyDown(KeyCode.E)) 
+    {   
+        
+        if (!interactionUI.activeSelf && !shopUI.activeSelf && !sellUI.activeSelf && isPlayerNearby && Input.GetKeyDown(KeyCode.E))
         {
             interactionUI.SetActive(true);
         }
+      
+
     }
 
     public void Buy()
     {
-        interactionUI.SetActive(false);
-        shopUI.SetActive(true);
+        if (interactionUI != null) interactionUI.SetActive(false);
+        if (shopUI != null) shopUI.SetActive(true);
         PopulateShopItems();
     }
 
     public void Sell()
     {
-        interactionUI.SetActive(false);
-        sellUI.SetActive(true);
+        if (interactionUI != null) interactionUI.SetActive(false);
+        if (sellUI != null) sellUI.SetActive(true);
         PopulatePlayerItems();
     }
 
     public void CloseUI()
     {
-        interactionUI.SetActive(false);
-        shopUI.SetActive(false);
-        sellUI.SetActive(false);
+        if (interactionUI != null) interactionUI.SetActive(false);
+        if (shopUI != null) shopUI.SetActive(false);
+        if (sellUI != null) sellUI.SetActive(false);
     }
 
     private void PopulateShopItems()
@@ -60,7 +60,7 @@ public class Shopkeeper : MonoBehaviour
         {
             GameObject itemGO = Instantiate(itemPrefab, shopItemsParent);
             // Setup itemGO with item data
-            itemGO.GetComponent<ItemButton>().Setup(item, this, inventoryManager, playerController);
+            itemGO.GetComponent<ItemButton>().Setup(item, this, inventoryManager, GameManager.Instance.playerController);
         }
     }
 
@@ -75,7 +75,7 @@ public class Shopkeeper : MonoBehaviour
         {
             GameObject itemGO = Instantiate(itemPrefab, playerItemsParent);
             // Setup itemGO with item data
-            itemGO.GetComponent<ItemButton>().Setup(item, this, inventoryManager, playerController);
+            itemGO.GetComponent<ItemButton>().Setup(item, this, inventoryManager, GameManager.Instance.playerController);
         }
     }
 
@@ -97,9 +97,9 @@ public class Shopkeeper : MonoBehaviour
 
    public void SellItem(ClothingItem item)
     {
-        if (playerController.IsItemEquipped(item))
+        if (GameManager.Instance.playerController.IsItemEquipped(item))
         {
-            playerController._playerEquipment.UnEquipItem(item); 
+             GameManager.Instance._playerEquipment.UnEquipItem(item); 
         }
 
         inventoryManager.RemoveItem(item);

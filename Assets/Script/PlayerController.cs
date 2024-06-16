@@ -14,12 +14,12 @@ public class PlayerController : MonoBehaviour
     private Animator _CostumeAnimator;
     public float speed = 5f;
 
-    internal PlayerEquipment _playerEquipment;
+
     public GameObject inventoryUI; // Reference to the inventory UI
     public Transform playerItemsParent; // Parent transform for the inventory items
     public GameObject itemPrefab; // Prefab for the inventory item buttons
 
-    public Shopkeeper shopkeeper;
+   
 
     private bool isInventoryOpen = false;
     
@@ -27,21 +27,21 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _playerEquipment = GetComponent<PlayerEquipment>();
-        if (_playerEquipment == null)
+        GameManager.Instance._playerEquipment = GetComponent<PlayerEquipment>();
+        if ( GameManager.Instance._playerEquipment == null)
         {
             Debug.LogError("PlayerEquipment component not found on player object.");
             return;
         }
 
         // Link animators from PlayerEquipment
-        _BaseAnimator = _playerEquipment._BaseAnimator;
-        _HairAnimator = _playerEquipment._HairAnimator;
-        _AccessoriesAnimator = _playerEquipment._AccessoriesAnimator;
-        _PantsAnimator = _playerEquipment._PantsAnimator;
-        _ClothesAnimator = _playerEquipment._ClothesAnimator;
-        _ShoesAnimator = _playerEquipment._ShoesAnimator;
-        _CostumeAnimator = _playerEquipment._CostumeAnimator;
+        _BaseAnimator =  GameManager.Instance._playerEquipment._BaseAnimator;
+        _HairAnimator =  GameManager.Instance._playerEquipment._HairAnimator;
+        _AccessoriesAnimator =  GameManager.Instance._playerEquipment._AccessoriesAnimator;
+        _PantsAnimator =  GameManager.Instance._playerEquipment._PantsAnimator;
+        _ClothesAnimator =  GameManager.Instance._playerEquipment._ClothesAnimator;
+        _ShoesAnimator =  GameManager.Instance._playerEquipment._ShoesAnimator;
+        _CostumeAnimator =  GameManager.Instance._playerEquipment._CostumeAnimator;
 
         SyncAnimators(0, 0, false); // Initial sync
     }
@@ -129,22 +129,22 @@ public class PlayerController : MonoBehaviour
     // Equip clothing item
     public void EquipClothingItem(ClothingItem item)
     {
-        _playerEquipment.EquipItem(item);
+         GameManager.Instance._playerEquipment.EquipItem(item);
         // Link animators from PlayerEquipment again to ensure they are up to date
-        _BaseAnimator = _playerEquipment._BaseAnimator;
-        _HairAnimator = _playerEquipment._HairAnimator;
-        _AccessoriesAnimator = _playerEquipment._AccessoriesAnimator;
-        _PantsAnimator = _playerEquipment._PantsAnimator;
-        _ClothesAnimator = _playerEquipment._ClothesAnimator;
-        _ShoesAnimator = _playerEquipment._ShoesAnimator;
-        _CostumeAnimator = _playerEquipment._CostumeAnimator;
+        _BaseAnimator =  GameManager.Instance._playerEquipment._BaseAnimator;
+        _HairAnimator =  GameManager.Instance._playerEquipment._HairAnimator;
+        _AccessoriesAnimator =  GameManager.Instance._playerEquipment._AccessoriesAnimator;
+        _PantsAnimator =  GameManager.Instance._playerEquipment._PantsAnimator;
+        _ClothesAnimator =  GameManager.Instance._playerEquipment._ClothesAnimator;
+        _ShoesAnimator =  GameManager.Instance._playerEquipment._ShoesAnimator;
+        _CostumeAnimator =  GameManager.Instance._playerEquipment._CostumeAnimator;
         SyncAnimators(0, 0, false); // Re-sync animators after equipping new item
     }
 
     // Expose IsItemEquipped method
     public bool IsItemEquipped(ClothingItem item)
     {
-        return _playerEquipment.IsItemEquipped(item);
+        return  GameManager.Instance._playerEquipment.IsItemEquipped(item);
     }
 
     // Toggle inventory UI
@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
         foreach (ClothingItem item in InventoryManager.Instance.GetClothingItems())
         {
             GameObject itemGO = Instantiate(itemPrefab, playerItemsParent);
-            itemGO.GetComponent<ItemButton>().Setup(item, shopkeeper, InventoryManager.Instance, this);
+            itemGO.GetComponent<ItemButton>().Setup(item, GameManager.Instance.shopkeeper, InventoryManager.Instance, this);
         }
     }
 }

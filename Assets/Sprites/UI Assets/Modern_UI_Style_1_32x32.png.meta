@@ -2995,7 +2995,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Modern_UI_Style_1_32x32_138
+      name: AAModern_UI_Style_1_32x32_138
       rect:
         serializedVersion: 2
         x: 30
@@ -6439,7 +6439,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Modern_UI_Style_1_32x32_302
+      name: AAModern_UI_Style_1_32x32_302
       rect:
         serializedVersion: 2
         x: 120
@@ -11227,7 +11227,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Modern_UI_Style_1_32x32_530
+      name: AAModern_UI_Style_1_32x32_530
       rect:
         serializedVersion: 2
         x: 122
@@ -11773,13 +11773,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Modern_UI_Style_1_32x32_556
+      name: AAModern_UI_Style_1_32x32_556
       rect:
         serializedVersion: 2
         x: 1282
         y: 416
         width: 28
-        height: 224
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -16214,7 +16214,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      AAModern_UI_Style_1_32x32_138: 1301001003
       AAModern_UI_Style_1_32x32_276: 475211365
+      AAModern_UI_Style_1_32x32_302: -191892647
+      AAModern_UI_Style_1_32x32_530: -557229891
+      AAModern_UI_Style_1_32x32_556: -1627924363
       AAModern_UI_Style_1_32x32_78: -809819372
       Modern_UI_Style_1_32x32_0: 249402005
       Modern_UI_Style_1_32x32_1: 174311152
@@ -16260,7 +16264,6 @@ TextureImporter:
       Modern_UI_Style_1_32x32_135: -717628817
       Modern_UI_Style_1_32x32_136: 335810640
       Modern_UI_Style_1_32x32_137: -226947572
-      Modern_UI_Style_1_32x32_138: 1301001003
       Modern_UI_Style_1_32x32_139: -669960789
       Modern_UI_Style_1_32x32_14: 585320984
       Modern_UI_Style_1_32x32_140: 787214144
@@ -16442,7 +16445,6 @@ TextureImporter:
       Modern_UI_Style_1_32x32_30: -1156649012
       Modern_UI_Style_1_32x32_300: -1615661834
       Modern_UI_Style_1_32x32_301: -586818195
-      Modern_UI_Style_1_32x32_302: -191892647
       Modern_UI_Style_1_32x32_303: 1665765738
       Modern_UI_Style_1_32x32_304: -2096652114
       Modern_UI_Style_1_32x32_305: 629841332
@@ -16695,7 +16697,6 @@ TextureImporter:
       Modern_UI_Style_1_32x32_528: -126199561
       Modern_UI_Style_1_32x32_529: 537016543
       Modern_UI_Style_1_32x32_53: -364504018
-      Modern_UI_Style_1_32x32_530: -557229891
       Modern_UI_Style_1_32x32_531: 404462369
       Modern_UI_Style_1_32x32_532: 319384303
       Modern_UI_Style_1_32x32_533: 105251138
@@ -16723,7 +16724,6 @@ TextureImporter:
       Modern_UI_Style_1_32x32_553: 803490447
       Modern_UI_Style_1_32x32_554: 919208597
       Modern_UI_Style_1_32x32_555: 750972111
-      Modern_UI_Style_1_32x32_556: -1627924363
       Modern_UI_Style_1_32x32_557: 1029497193
       Modern_UI_Style_1_32x32_558: 185955737
       Modern_UI_Style_1_32x32_559: -1792011212

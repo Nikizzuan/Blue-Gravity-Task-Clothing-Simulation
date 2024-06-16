@@ -54,10 +54,14 @@ public class PlayerEquipment : MonoBehaviour
             case ClothingType.Shirt:
                 parentTransform = shirtParent;
                 animator = _ClothesAnimator;
+                if (equippedItems.ContainsKey(ClothingType.Costume))
+                    UnEquipItem(equippedItems[ClothingType.Costume].clothingItem);
                 break;
             case ClothingType.Pants:
                 parentTransform = pantsParent;
                 animator = _PantsAnimator;
+                if (equippedItems.ContainsKey(ClothingType.Costume))
+                    UnEquipItem(equippedItems[ClothingType.Costume].clothingItem);
                 break;
             case ClothingType.Shoes:
                 parentTransform = shoesParent;
@@ -71,9 +75,9 @@ public class PlayerEquipment : MonoBehaviour
                 parentTransform = costumeParent;
                 animator = _CostumeAnimator;
                 if (equippedItems.ContainsKey(ClothingType.Shirt))
-                    Destroy(equippedItems[ClothingType.Shirt].gameObject);
+                    UnEquipItem(equippedItems[ClothingType.Shirt].clothingItem);
                 if (equippedItems.ContainsKey(ClothingType.Pants))
-                    Destroy(equippedItems[ClothingType.Pants].gameObject);
+                    UnEquipItem(equippedItems[ClothingType.Pants].clothingItem);
                 _ClothesAnimator = null;
                 _PantsAnimator = null;
                 break;
@@ -112,48 +116,48 @@ public class PlayerEquipment : MonoBehaviour
 
 
     public void UnEquipItem(ClothingItem item)
-{
-    if (item == null)
     {
-        Debug.LogError("Clothing item is null");
-        return;
+        if (item == null)
+        {
+            Debug.LogError("Clothing item is null");
+            return;
+        }
+
+        if (!equippedItems.ContainsKey(item.clothingType))
+        {
+            Debug.LogWarning("No item of type " + item.clothingType + " is currently equipped");
+            return;
+        }
+
+        // Destroy the equipped item game object
+        Destroy(equippedItems[item.clothingType].gameObject);
+
+        // Remove the item from the dictionary
+        equippedItems.Remove(item.clothingType);
+
+        // Reset the specific animator reference if necessary
+        switch (item.clothingType)
+        {
+            case ClothingType.Shirt:
+                _ClothesAnimator = null;
+                break;
+            case ClothingType.Pants:
+                _PantsAnimator = null;
+                break;
+            case ClothingType.Shoes:
+                _ShoesAnimator = null;
+                break;
+            case ClothingType.Accessory:
+                _AccessoriesAnimator = null;
+                break;
+            case ClothingType.Costume:
+                _CostumeAnimator = null;
+                break;
+            case ClothingType.Hair:
+                _HairAnimator = null;
+                break;
+        }
     }
-
-    if (!equippedItems.ContainsKey(item.clothingType))
-    {
-        Debug.LogWarning("No item of type " + item.clothingType + " is currently equipped");
-        return;
-    }
-
-    // Destroy the equipped item game object
-    Destroy(equippedItems[item.clothingType].gameObject);
-
-    // Remove the item from the dictionary
-    equippedItems.Remove(item.clothingType);
-
-    // Reset the specific animator reference if necessary
-    switch (item.clothingType)
-    {
-        case ClothingType.Shirt:
-            _ClothesAnimator = null;
-            break;
-        case ClothingType.Pants:
-            _PantsAnimator = null;
-            break;
-        case ClothingType.Shoes:
-            _ShoesAnimator = null;
-            break;
-        case ClothingType.Accessory:
-            _AccessoriesAnimator = null;
-            break;
-        case ClothingType.Costume:
-            _CostumeAnimator = null;
-            break;
-        case ClothingType.Hair:
-            _HairAnimator = null;
-            break;
-    }
-}
 
 
     public bool IsItemEquipped(ClothingItem item)

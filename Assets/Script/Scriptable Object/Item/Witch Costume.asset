@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81777be3c3e6c9643a73aa1a13bb7fbe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bea09780b271c64bb821f940bb22272, type: 3}
   m_Name: Witch Costume
   m_EditorClassIdentifier: 
   itemName: Witch Costume
   icon: {fileID: -365535119, guid: c7cbcced2425f5c44b03874688d6bda8, type: 3}
   price: 90
+  clothingType: 2

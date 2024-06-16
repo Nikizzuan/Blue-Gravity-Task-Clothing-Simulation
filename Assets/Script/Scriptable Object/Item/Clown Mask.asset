@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81777be3c3e6c9643a73aa1a13bb7fbe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bea09780b271c64bb821f940bb22272, type: 3}
   m_Name: Clown Mask
   m_EditorClassIdentifier: 
   itemName: Clown Mask
   icon: {fileID: 610216729, guid: 1ccbf6537ba54034cb476a52c141e7bb, type: 3}
   price: 50
+  clothingType: 5
